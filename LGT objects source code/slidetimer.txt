@@ -1,0 +1,49 @@
+8033B26C
+xxxx0000
+8'1 F3
+4'1 7D
+1ms=3
+
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LH T1, 0xB26C(T0)
+ADDIU T2,R0,0x384
+BLE T1,T2,nodie
+NOP
+    SH R0, 0xB21E(T0)
+nodie:
+
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+
+
+//////////////////////////////////////////////含参数，p4设置成秒数
+
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LH T1, 0xB26C(T0)
+LUI V1, 0x8036
+LW V1, 0x1160 (V1)
+
+LW T3,0x0188(V1)
+SLL T3,T3,8
+SRL T3,T3,8
+ANDI T3,T3,0xFFFF
+ADDIU T4,R0,0x1E
+MULT T3,T4
+MFLO T3
+
+BLE T1,T3,nodie
+NOP
+	SH R0, 0xB21E(T0)
+nodie:
+
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+

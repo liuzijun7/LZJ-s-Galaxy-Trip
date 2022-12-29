@@ -1,0 +1,39 @@
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LW T3, 0xB1D8 (T0)
+LH T4, 0x0(T3)
+ADDIU T5,R0,0x30
+BNE T4,T5,noton
+NOP
+	LUI T1, 0x3800
+	ORI T1, T1, 0x22C0
+	SW T1, 0xB17C(T0)
+noton:
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+
+
+//////////////////////////water mc punch
+//300022e2 mc落水 080042f0水下站立 000044f2水下行走 000044f8水下跳跃
+
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LW T3, 0xB1D8 (T0)
+LH T4, 0x0(T3)
+ADDIU T5,R0,0x30
+BNE T4,T5,end
+NOP
+
+LUI T1, 0x3800
+ORI T1, T1, 0x22C0
+SW T1, 0xB17C(T0)
+
+end:
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18

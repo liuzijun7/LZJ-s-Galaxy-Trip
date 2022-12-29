@@ -1,0 +1,77 @@
+改变重力
+根据材质：
+A9，上升力 
+AA，下降力
+AB，横向加速
+AC，有mc就上升
+///////////////////////数值：5稍微高一点,7比较高
+//param1 纵向 param2 横向 param3 下降
+
+;上升
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LW T3, 0xB1D8 (T0)
+LH T4, 0x0(T3)
+ADDIU T5,R0,0xA9
+BNE T4,T5,up
+NOP
+
+LUI T0, 0x8034
+LW T1, 0xB1BC(T0)
+
+LUI V1,0x8036
+LW V1,0x1160(V1)
+LBU T3,0x0188(V1)
+SLL T2,T3,0x10
+ADD T1,T1,T2
+SW T1, 0xB1BC(T0)
+
+up:
+
+LUI T0, 0x8034
+LW T3, 0xB1D8 (T0)
+LH T4, 0x0(T3)
+ADDIU T5,R0,0xAA
+BNE T4,T5,down
+NOP
+
+LUI T0, 0x8034
+LW T1, 0xB1BC(T0)
+
+LUI V1,0x8036
+LW V1,0x1160(V1)
+LBU T3,0x018A(V1)
+SLL T2,T3,0x10
+SUB T1,T1,T2
+SW T1, 0xB1BC(T0)
+
+down:
+
+;改变轴向速度
+
+LUI T0, 0x8034
+LW T3, 0xB1D8 (T0)
+LH T4, 0x0(T3)
+ADDIU T5,R0,0xAB
+BNE T4,T5,heng
+NOP
+
+LUI T0, 0x8034
+LW T1, 0xB1C4(T0)
+
+LUI V1,0x8036
+LW V1,0x1160(V1)
+LBU T3,0x0189(V1)
+SLL T2,T3,0x10
+ADD T1,T1,T2
+SW T1, 0xB1C4(T0)
+
+heng:
+
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+
+

@@ -1,0 +1,30 @@
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LH T3, 0xB176 (T0)
+ANDI T3, T3, 0x02 //VC
+BEQ T3, R0, END
+	LW T1, 0xB1D8 (T0)
+	ORI T9, R0, 0x00//collision type
+	SH T9, 0x0 (T1)
+END:
+
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+当吃到隐身帽的时候可以改变所到之处脚下材质，隐身帽消失后脚下材质不会恢复
+
+
+免疫流沙
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LW T1, 0xB1D8 (T0)
+ORI T9, R0, 0x00//collision type
+SH T9, 0x0 (T1)
+
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18

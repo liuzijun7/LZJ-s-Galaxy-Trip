@@ -1,0 +1,101 @@
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LB T1, 0xB21E(T0)
+ADDIU T2,R0,0x1
+BLE T1,T2,life
+	ADDIU T1,T1,0x-1
+	SB T1,0xB21E(T0)
+life:
+
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+
+////////////////////////////////////////////////////////////////////////////////////
+1 life only on 0x30 collision:
+
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LW T3, 0xB1D8 (T0)
+LH T4, 0x0(T3)
+ADDIU T5,R0,0x30
+BNE T4,T5,noton
+NOP
+	LB T1, 0xB21E(T0)
+	ADDIU T2,R0,0x1
+	BLE T1,T2,life
+	NOP
+		ADDIU T1,T1,0x-1
+		SB T1,0xB21E(T0)
+	life:
+noton:
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+
+////////////////////////////////////////////////////////////////////////////////////
+0 life only on 0x30 collision:
+
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LW T3, 0xB1D8 (T0)
+LH T4, 0x0(T3)
+ADDIU T5,R0,0x30
+BNE T4,T5,noton
+NOP
+	SB R0,0xB21E(T0)
+noton:
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+
+
+
+//////////////////////////////////////////////材质复活
+
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8034
+LW T3, 0xB1D8 (T0)
+LH T4, 0x0(T3)
+ADDIU T5,R0,0x30
+BNE T4,T5,noton
+NOP
+	LB T1, 0xB21E(T0)
+	ADDIU T2,R0,0x0
+	BNE T1,T2,life
+	NOP
+		ADDIU T1,T1,0x8
+		SB T1,0xB21E(T0)
+	life:
+noton:
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+
+//////////////////////////////////////// 复活物体
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8036
+LW A1, 0x1158(T0)
+JAL 0x802A1424
+LW A0, 0x1160(T0)
+
+BEQ V0, R0, colliding
+NOP
+	LUI T0, 0x8034
+	ADDIU T1,R0,0x8
+	SB T1,0xB21E(T0)
+colliding:
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+

@@ -1,0 +1,59 @@
+当某一种行为消失时爆炸
+
+ADDIU SP, SP, -0x20
+SW RA, 0x0014 (SP)
+
+LUI T4, 0x8036
+LW T4, 0x1160 (T4)
+LUI T5, 0x1300
+LW T6, 0x0188 (T4)
+SLL T6, T6, 8
+SRL T6, T6, 8
+JAL 0x8029F95C
+OR A0, T6, T5
+BNEZ V0, end
+
+LUI T2, 0x8036
+LW T2, 0x1160 (T2)
+SH R0, 0x0074 (T2) 
+
+JAL 0x802E6AF8
+
+end:
+LW RA, 0x0014 (SP)
+JR RA
+ADDIU SP, SP, 0x20
+
+
+
+///////////////////////////////////////////////////////star by behavior killed
+ADDIU SP, SP, -0x20
+SW RA, 0x0014 (SP)
+
+LUI T4, 0x8036
+LW T4, 0x1160 (T4)
+LUI T5, 0x1300
+LW T6, 0x0188 (T4)
+SLL T6, T6, 8
+SRL T6, T6, 8
+JAL 0x8029F95C
+OR A0, T6, T5
+BNEZ V0, end
+LUI T2, 0x8036
+LW T2, 0x1160 (T2)
+SH R0, 0x0074 (T2) 
+LWC1 F12, 0xA0 (T2)
+LWC1 F14, 0xA4 (T2)
+JAL 0x802F2B88
+LW A2, 0xA8 (T2)
+
+end:
+LW RA, 0x0014 (SP)
+JR RA
+ADDIU SP, SP, 0x20
+/////////////////////////////////////////////////////test
+LW 8位4字节，但是T寄存器是16字节，所以高8位全是F 从0x188读来的是param34
+LW T6, 0x0188 (T4)    T6=FFFFFFFF00003174
+SLL T6, T6, 8	T6=FFFFFFFF00317400
+SRL T6, T6, 8	T6=FFFFFFFF00003174
+

@@ -1,0 +1,97 @@
+/////////////////////////////////////在上面就爆炸，产生伤害
+ADDIU SP, SP, -0x20
+SW RA, 0x0014 (SP)
+
+JAL 0x802A3CFC
+NOP
+BEQ V0,R0, end
+
+LUI T2, 0x8036
+LW T2, 0x1160 (T2)
+SH R0, 0x0074 (T2) 
+
+JAL 0x802E6AF8
+
+end:
+LW RA, 0x0014 (SP)
+JR RA
+ADDIU SP, SP, 0x20
+
+/////////////////////////////////////上方坐才爆炸 
+//008008A9 空气中坐 0080023C砸地
+
+ADDIU SP, SP, -0x20
+SW RA, 0x0014 (SP)
+
+JAL 0x802A3CFC
+NOP
+BEQ V0,R0, end
+
+LUI T1, 0x8034
+LW T8, 0xB17C(T1)
+LUI T9, 0x0080
+ORI T9, T9, 0x023C
+
+BNE T8, T9, end
+
+LUI T2, 0x8036
+LW T2, 0x1160 (T2)
+SH R0, 0x0074 (T2) 
+
+JAL 0x802E6AF8
+
+end:
+LW RA, 0x0014 (SP)
+JR RA
+ADDIU SP, SP, 0x20
+
+/////////////////////////////////////金属帽上方爆炸 
+
+ADDIU SP, SP, -0x20
+SW RA, 0x0014 (SP)
+
+JAL 0x802A3CFC
+NOP
+BEQ V0,R0, end
+
+LUI T0, 0x8034
+LH T3, 0xB176 (T0)
+ANDI T3, T3, 0x04 //mc
+BEQ T3, R0, end
+
+LUI T2, 0x8036
+LW T2, 0x1160 (T2)
+SH R0, 0x0074 (T2) 
+
+JAL 0x802E6AF8
+
+end:
+LW RA, 0x0014 (SP)
+JR RA
+ADDIU SP, SP, 0x20
+
+
+/////////////////////////////////////不穿vc走就爆炸 
+
+ADDIU SP, SP, -0x20
+SW RA, 0x0014 (SP)
+
+JAL 0x802A3CFC
+NOP
+BEQ V0,R0, end
+
+LUI T0, 0x8034
+LH T3, 0xB176 (T0)
+ANDI T3, T3, 0x02 //vc
+BNE T3, R0, end
+
+LUI T2, 0x8036
+LW T2, 0x1160 (T2)
+SH R0, 0x0074 (T2) 
+
+JAL 0x802E6AF8
+
+end:
+LW RA, 0x0014 (SP)
+JR RA
+ADDIU SP, SP, 0x20

@@ -1,0 +1,22 @@
+ADDIU SP, SP, 0xFFE0
+SW RA, 0x14(SP)
+
+LUI A0, 0x1300
+JAL 0x8029F95C
+ORI A0, A0, 0x1478 ;寻找行为对应物品的ram地址，存放在A0
+BEQZ V0, END ;如果找不到就算了
+ORI T8, R0, 0x0002
+LW T9, 0x014C (V0)
+BNE T8, T9, END ;判断开关是否按下了，按下就做以下操作？
+LUI T2, 0x8036 ;产生星星，将物品的地址设置为星星的地址，自动设置星星id？
+LW T2, 0x1160 (T2)
+SH R0, 0x0074 (T2) ;让其失效，不再处理
+LWC1 F12, 0xA0 (T2)
+LWC1 F14, 0xA4 (T2)
+JAL 0x802F2B88
+LW A2, 0xA8 (T2) ;SPAWN STAR : 802F2B88 SpawnStar F12 (X), F14 (Y), A2 (Z ALSO AS FLOAT)
+END:
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x20
+

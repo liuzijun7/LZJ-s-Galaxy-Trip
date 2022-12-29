@@ -1,0 +1,51 @@
+00 04 00 00
+11 01 00 01
+10 05 00 00
+10 2B 00 00
+23 00 00 00 00 50 00 64
+08 00 00 00
+
+09 00 00 00
+
+.orga 0x653F4
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+LUI T0, 0x8036
+LW A1, 0x1158(T0)
+JAL 0x802A1424
+LW A0, 0x1160(T0)
+
+BEQ V0, R0, colliding
+NOP
+	LUI T0, 0x8034
+	LH T1, 0xAFA0(T0)
+	ANDI T1, T1, 0x8000
+	
+	BEQ T1,R0,appressed
+	NOP
+	
+		LUI T0, 0x8034
+		LH T1, 0xB218(T0)
+		ADDIU T2,R0,0x13
+		BLE T1,T2,coin
+		NOP
+		
+			//SET DOUBLE JUMP
+			LUI T1, 0x0300
+			ORI T1, T1, 0x0881
+			SW T1, 0xB17C(T0)
+	
+			//SET Y SPEED TO 60
+			LUI T1, 0x4320//60
+			SW T1, 0xB1BC(T0)
+		coin:
+
+	appressed:
+
+colliding:
+
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
+
