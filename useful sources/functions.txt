@@ -1,0 +1,294 @@
+To kill mario, use 
+LUI T0, 0x8034
+SH R0, 0xB21E(T0)
+
+
+---OBJECT---
+SPAWN OBJECT, but without copy params? : 8029ED20, A0 (Object), A1 (zero), A2 (MODEL ID), A3 (Behavior ID)
+SPAWN OBJECT: 8029EDCC, A0 (current object location), A1 (Model ID), A2 (behavior) [V0: new obj pointer]
+SCALE current OBJECT: 8029f430, F12 (scale)
+scale object: 8029F404 (A0: object, A1: scale)
+DEACTIVATE OBJECT: 802A0568, A0 (current object location)
+UN/FREEZE OBJECTS: 80280BD34, A0 (1=freeze, 2=unfreeze)
+
+
+new RNG:80383bb0
+
+
+
+---BEHAVIOR---
+find object in RAM: 8029F95C (a0 segmented behavior ID)
+calculate lateral distance: 8029E27C (A0 OBJ1, A1 OBJ2)
+check behavior ID: 802A1554 (A0 OBJ*, A1 ID)
+set animation ID: 8029F4B4 (A0: animation ID) {A0 also gets saved to 0x178!!}
+make object blink specified amount of blinks: 802A36A4 (a0: action timer before start blinking, A1: amount of blinks) [V0: amount of blinks reached?]
+get distance from starting point towards mario of current object: 802A15AC [F0]
+get rotation towards starting point of current object: 802A2748 [V0: rotation]
+spawn usual coins: 802A1B8C (A0: obj*, A1: amount, A2: Y speed (safe amount to obj->0x198 before))
+related to spawned, args at sp->0x18?: 8029EF64
+returns collision triangle pointer : 8038156C (a0? next 4 bytes after point to collision triangle, a1x?,a2y?,a3z?)
+toad spawn star: 802AB558 (A0 star#)
+CALCULATE DISTANCE: 8029E2F8, A0 (Object 1*), A1 (Object 2*) [F0 : distance]
+move current object?: 802A120C
+nearly same as above: 802A5620
+VECTORIAL DISSECTION: 802A1308 (object->0xB8 = |vector|//object->0xC8 = direction, saves to speed X and Z)
+COPY PARAMS: 8029F0E0, a0 (paste to), A1 (copied from)
+SHOW OBJECT : 8029F66C
+PROCESS ACTION: 802A3E30, A0 (Action table)
+PROCESS ROTATION SPEED :802A2BC4
+EXPLODE OBJECT: 802E6AF8
+give properties: 802A34A4, A0 (object), A1 (ram address, next 4 bytes is 0x2f interaction, next 4 unknown, next 4 is x/z and Y sphere size)
+create white puff explosion at current object position: 802A37AC
+rotate towards Y destination: 8029E530, a0 movement Y rotation, a1 object->0x160, a2 speed, save V0 to 0xC8
+IS behavior equal to current object's : 802A14FC, A0 (behavior )[offset in segment 13]
+IS interaction HAPENNING? : 802A1424, A0 (OBJ Pointer), A1 (Second obj pointer, most of the time Mario)
+set behavior id of current object : 802A148C, A0 (behavior ID)
+set behavior id: 802A14C4, A0 (obj pointer), A1 (behavior ID) [segment 13]
+CHECK IF MARIO IS ON TOP OF CURRENT OBJECT: 802A3CFC  (note: only for solid objects)
+get rotation towards another object : 8029E694, A0(object 1), A1 (object to rotate to) [V0: rotation]
+vectorial retortion: 8037a9a8 (f12 z part, f14 x part) [V0: vector rotation]
+Chase Mario function : 802FBAB4, F12 (?)
+IS MARIO STOMPING ON current object (solid objects only) : 802A3754 /V0 =true or false. you can modify the action to "is mario jumping on" or smth
+SPAWN STAR : 802F2B88 SpawnStar F12 (X), F14 (Y), A2 (Z ALSO AS FLOAT)
+IS MARIO NEAR TO CURRENT OBJECT?: 802E5208, F12 (xpos), F14 (Ypos), A2 (Zpos), A3 (immidiate - maximum distance?)
+SPAWN STAR FROM CURRENT OBJECT: 802AB558, A0 (BPARAM 2)
+Give ground position : 80381794, F10(Ypos), F12 (Xpos), A2 (Zpos)
+give ground position : 80381900, F10(Ypos), F12 (Xpos), A2 (Zpos), A3 (paste collision triangle pointer to)
+PROCESS OBJECT SPEED:8029F070
+SET ANIMATION: 8037C658, A0 (object pointer), A1 (segmented pointer to animation pointer)
+SET ANIMATION OF CURRENT OBJECT : 8029F464, A0 (animation index)
+Set Model of current object: 802a04c0, A0(model ID)
+copy obj position: 8029F120 (A0: paste, A1: copy)
+GET WATER HEIGHT?: 80381BA0 F12 (Xpos), A2 (Zpos) [f0]
+PUT SPEEDS OF CURRENT OBJ TO 0: 802C33F4
+
+
+Check walls: 80251A48 (A0: Pointer to positions, A1: minimum distance from top of wall, A2: A2 is maximum perp. distance to wall) [V0: zero or collision triangle]
+spawn white puff: 802A32AC (A0: some RAM address with paramaters for puff)
+ 80330094: THI top, water spitters
+ 803301d0: goomba
+ 8033032C: scuttlebug
+ 80330340: sand
+ 8033035C: snow
+ 80332b10: snow bits
+ 80332984: sandish
+ 803329B8: some stones
+ 80332a48: more bubbles
+ 80332a5c: some bubbles
+
+
+
+---MARIO---
+JUMP: 802523C8 , A0 (mario struct), A1 (height?, A2 (height?)
+CHANGE MARIO'S ACTION: 80252CF4, A0 (mario data location), A1 (action value), A2 (always zero)
+Make mario go up: 8024D0B4, A0 (Mariostruct), A1 (current object), A2 (height)
+ANIMATE MARIO: 802509B8, A0(Mario struct), A1 (animation number)
+
+---INTERFACE---
+camera movement: 8029A2F8 (a0 = 292fe4 wiggle, 292c00 focus on mario?, 292f98 slight rotation, 292f40 zoom out, 292d80 zoom in on mario, 292e2c position in front of mario), a1 = mario, a2/a3 = 28?)
+drunk camera slightly: 80288888 (a0 = ? set to 5?)
+Save file related? 80279840 (A0: fileID-1)
+802794A0: safe to EEP rom?
+modify sort fluently thing used for camera: 8028976c (A0 pointer to short to modify?, a1: target rotation, a2: rotation speed)
+JAL $00322F40 clear cache
+PRINTXY2 802D7B84 (A0 = byte charset, A1 = int left, A2 = int top, A3 = pointer sm64_string) Latin charset = 1 Japan charset = 2 
+CHANGE CAMERA: 80288718, A0 (0: check, 1: mario, 2:lakitu)
+FADE SCREEN OUT, handles all warps: 8024A9CC, A0 (Mario struct), A1(type)
+
+80336118 has a table (caseswitch)
+
+jump to A1 value///used when
+8024ABEC 1 star select
+8024AC3C 2 ?
+8024ACF0 3 door
+8024AD60 4 slide entrance
+8024AC8C 5 ?
+8024AE60 6 to 10 title screen
+8024AACC 11 ?
+8024AB0C 12 ? used somewhere
+8024AB74 13 circle, use death warp
+8024AE60 14 title screen
+8024AA88 15 ?
+8024AA44 16 starform
+8024ADC0 17 black
+8024ADEC 18 ?
+8024AA44 19 starform + use success warp
+
+8033b254: time before warp occurs
+8033b256: warp id to use
+
+
+
+
+SHAKE SCREEN: 802A50FC, A0 (always one)
+SIGN MESSAGE: 802D8D08, A0 (message value)
+PRINTXY: 802D66C0, A0 (xpos) a1(y pos), A2 (message location)
+PRINTSTR : 802d6554, A0 (X), A1 (Y), A2 (Location)
+PRINT INT : 802d62d8, A0 (X), A1 (Y), A2(string) , A3 (INT)
+Create text box: 802A4BE4, A0 (flags), A1 (rotate to mario), A2 (Message type), A3
+
+
+---SOUND---
+PLAY SOUND: 8031EB00, A0 (sound value), A1 (mario object location+0x54 or 803331F0)
+PLAY MUSIC: 80320544, A0 (0=normal, 1=play over current music), A1 (sequence), (a2 = 0 for layer different than 0)
+PLAY SOUND PROPERLY : 802CA144, A0 SOUND VALUE
+PLAY SOUND PROPERLY2 : 802CA1E0, A0 SOUND VALUE
+play sound another: 802CA190 a0 sound value
+another play sound: 802BECB0 (A0 ???, a1 ???, a2 sound value)
+---MATHEMATICAL---
+SQUARE ROOT: 80323A50, Squares F12 and returns F0.
+
+---MEMEORY---
+DMA COPY: 80278504, A0(RAM start), A1 (rom offset start), A2 (rom offset end)
+
+---VALUES---
+MARIO DATA: 8033B170
+STATS FLAGS: 8033B26A
+CURRENT OBJECT: 80361160
+PLAYER OBJECT: 80361158
+OBJECT MARIO IS STANDING ON: 80330E34
+CONTROLLER #1: 80367054
+CONTROLLER #2: 8036705C
+CURRENT LEVEL ID: 8032DDF8 <<weird effects when chaning to 0x20
+OBJECT MARIO IS HOLDING: 8033B1EC
+
+---FUNCTIONS BY THE GAME---
+PAUSE MENU RED COIN DISPLAYSER: 802DB6E8
+SAVE DIALOG: 802DD838 (0x64, 0x56, 0x80331490, 0x14)
+BLINK FUNCTION: 802E7324, A0 (object type)
+PRESS START DISPLAY FUNCTION : 8027A8B0
+PRODUCES TITLE SCREEN SOUNDS: 80248E54
+PRODUCES END SCREEN SOUNDS  : 8024BFA0
+PLAYS WHEN MARIO TRANSFORMS TO WING MARIO
+(CHANGES MUSIC, generates sound effects,...): 8024FB30
+RELATED TO MARIOS PUNCHES : 80250230
+RUNS WHEN STARTING A GAME : 80254F44
+RUNS AT CREDIT SCENE : 8025C6F8
+RUNS AT BOWSER FIGHT : 80275B34
+RUNS AT 100TH COIN : 802A3E80
+PROCESSES MESSAGE BOXES : 802DA1AC
+processing sounds during all selectors? : 802D862C
+PRESSING START IN A LEVEL : 802DCA88
+pause related : 802DB760
+ Show coins : 802D89B8
+ show stars : 802D8A80
+ 802D9F84 :
+YOSHI GIVING LIVE : 802DCF30, 802F95AC?
+TIMER DISPLAY : 802E395C
+HUD DISPLAY :
+ LIVES: 802E3744
+ COINS: 802E37A8
+ STARS: 802E380C
+WATER CURRENTS PROCESSING: 80270500
+PLACES MARIO HEAD ON TITLE SCREEN : 802764B0
+
+
+---camera perspective----
+HANDLES CLICK SOUND: 8028B954
+CALLS PLAY CLICK: 8028B954
+PLAY CLICK: 8028B920
+80289684: changes camera position (a0: array[positions]*, a1: pointer to x,y,z float, a2: xpseed?, a3: yspeed, stack+10:zspeed)
+ 8028935C: changes x, y or z position of camera smoothly (a0: position*, a1: end position, a2: speed?)
+ 8028CE24: calculate camera destinations and speeds
+
+LAKITU FIRST CAMERA: 8029784C
+PEACH LETTER CAMERA AND STUFF : 80297A64
+Castle Grounds double door opening camera : 80299100
+DOOR CAMERA RELATED : 802AC958
+
+---beta(?) functions---
+802AEDC0 : spawns something conditional with behavior 10B8
+802C0AAC : somehow spawning 0D object with behavior 220C
+802CA460 : Prints some shit
+802A3D40 : changed Y position of object and returns something
+
+----small useless functions--------------
+802A0008 Is object at anim frame+timer? (A0 anim frame+timer)
+802A0050 Is object in anim frame+timer intervall (A0 anim frame , A1 intervall size)
+8029F59C set obj animation and pointer ( A0 obj*, A1: pointer, A2: animation ID
+
+
+
+
+
+Music related functions
+
+802c89f0 - platform object checking function
+
+
+8031E240 - music related
+
+
+
+8031E7B8 - music related...
+
+
+80246bb4 - entry point for sound thread (?)
+
+8031E9C0 - Process all sound effects
+   8031eb30 - PROCESS ALL SOUND EFFECTS!
+
+
+80320544 -> (0, song value, 0)
+  80319328 - >
+    80319388 (a0, song value(a1), a2) -change current music
+
+
+
+
+Printer for HUD numbers: 
+802D62D8 (A0 = int left, A1 = int bottom, A2 = pointer ascii_format_string, A3 = int value) 
+Base converter: 802D5E54 (A0 = value, A1 = int base, A2 = pointer ??, A3 = pointer ??) 
+
+Printer for HUD symbols: 
+802D6554 (A0 = int left, A1 = int bottom, A2 = pointer ascii_string) 
+
+Printer for "PRESS START" at starting screen: 
+802D66C0 (A0 = int left, A1 = int top, A2 = pointer ascii_string) 
+
+Printer for "SELECT FILE" and "NEW" in select file screen: 
+802D7B84 (A0 = byte charset, A1 = int left, A2 = int top, A3 = pointer sm64_string) 
+Latin charset = 1 
+Japan charset = 2 
+
+Create menu (course pause screen): 
+802DBE68 (A0 = int left, A1 = int bottom, A2 = pointer option) 
+(Option is normally 80331490) 
+
+Create R camera submenu (course pause screen): 
+802DBB24 (A0 = int left, A1 = int bottom, A2 = pointer option, A3 = int arrow_offsetx) 
+
+Print animated red coin: 
+802DB498 (A0 = int left, A1 = int bottom) 
+
+Create menu box and arrows (castle pause screen): 
+802DC15C (A0 = int left, A1 = int top) 
+
+Create menu text (castle pause screen): 
+802DCC48 (A0 = int left, A1 = int bottom) 
+
+Shade screen: 
+802db3b8 () 
+
+Print "PAUSE": 
+802dc478 () 
+
+Print generic text (star select screens, file select screens, etc): 
+802D77DC (A0 = int left, A1 = int bottom, A2 = pointer sm64_string) 
+
+Print texture: 
+80325688 (a0 some ram address, A1 = float left, A2 = float bottom, a3 float depth)
+ 80278f2c a0 = some number usually smaller than 0x40? returns A0 for above in V0
+21f830 
+
+
+Printers for Lakitu HUD symbols: 
+802E2CF0 (A0 = int left, A1 = int bottom, A2 = img_segmented_address): used for lakitu, camera, mario, and X symbols 
+802E2E58 (A0 = int left, A1 = int bottom, A2 = img_segmented_address): used for zooming C button symbols 
+
+Converters for segmented addressing: 
+80277F50(A0 = segmented_address): will take a segmented address such as 080192D0 and return 8017C7C0 to V0 (used for graphics, animations, collisions) 
+The segments table is located at 8033B400, and changes depending on what level you're in. 
+
+Load data from rom: 
+8027883C(A0 = RAM address, A1 = ROM start address, A2 = ROM end address) 

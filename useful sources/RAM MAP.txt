@@ -1,0 +1,27 @@
+https://hack64.net/wiki/doku.php?id=super_mario_64:ram_memory_map
+
+80332F40/80332F44  计时器，00-FF？8033B26C?
+8033B944 music id  rom0xf00c2 change 02 0d to 08 34 will faster
+
+$8033B176	2 bytes	Misc.	Global	Mario hat flags
+0111 no  0119wc 0115mc 0013vc 000x 最后一位 1111 wmvx
+$8033B17C	4 bytes	Misc.	Global	Mario's current action
+$8033B17C	4 bytes	Misc.	Global	Mario's previous action
+$8033B188	2 bytes	Misc.	Global	Mario's animation phase (unsigned short int)
+$8033B18A	2 bytes	Misc.	Global	Mario's animation cycle counter. Game also uses this to determine how sleepy Mario is.
+$8033B218	2 bytes	Misc.	Global	Mario's current coins.
+$8033B21C	1 byte	Misc.	Global	Number of beta keys
+$8033B21D	1 byte	Misc.	Global	Number of lives
+$8033B21E	2 bytes	Misc.	Global	Mario's power - upper byte is the value and the lower byte works like a decimal.
+$8033B220	1 byte	Misc.	Global	Mario Y offset from the ground (signed char)
+$8033B222	1 byte	Misc.	Global	Amount of time to apply 'hurting' effect to Mario's power
+$8033B223	1 byte	Misc.	Global	Amount of time to apply 'healing' effect to Mario's power (unsigned char)
+$8033B226	2 bytes	Misc.	Global	Displayed power number (signed short int)
+$8033B264	2 bytes	Misc.	Global	Number for displayed stars (signed short int aka Halfword).
+8033AFA0 按键 x8000 c4000 z2000 a0020 8033AFD8 8033AFF8
+按下x第一帧是80008000，然后为80000000
+
+8033B1BC 00000000 SW 纵向速度
+8033B1C4 水平速度
+8033B1B8、8033B1C8 某轴速度？面向反面速度0时改为80000000
+8033B1C0、8033B1CC 另一轴速度？面向反面速度0时改为80000000

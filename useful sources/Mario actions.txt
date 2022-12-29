@@ -1,0 +1,361 @@
+设置状态用第一列
+at0x8033B17C
+
+0x00000383	0x180	0x8027546C	Grabbed MIPS
+0x00000385	0x180	0x802755FC	Dive end animation (grabbed MIPS)
+0x00000386	0x180	0x802759B4	Dive end animation
+0x00000387	0x180	0x802756C8	Put down MIPS
+0x00000390	0x180	0x80275A80	Grab bowser's tail
+0x00000391	0x180	0x80275B34	Holding onto bowser's tail
+0x00000392	0x180	0x80275E78	Let go of bowser's tail
+0x00000442	0x040	0x80266734	???
+0x00000443	0x040	0x80266AF8	Stop Mario
+0x00000444	0x040	0x80266D4C	Turn around 180 degrees
+0x00000447	0x040	0x8026699C	Carrying King bob-omb/Chuckya
+0x0000044B	0x040	0x80267240	???
+0x00000474	0x040	0x80269264	Pickup object??
+0x00000475	0x040	0x80269300	Pickup object??
+0x00000476	0x040	0x80269788	???
+0x00000477	0x040	0x802697DC	Pickup object??
+0x00000479	0x040	0x8026939C	Long-jump ground landing
+0x000004A8	0x080	0x8026F158	???
+0x0000054C	0x140	0x8025F970	Climb up from edge
+0x0000054D	0x140	0x8025F970	Climb up from edge (Part 2)
+0x0000054E	0x140	0x8025FA64	Go down onto edge
+0x0000054F	0x140	0x8025FAE8	Quick pull up from edge
+0x000008A7	0x080	0x8026D988	Hit a wall?
+0x000008AE	0x080	0x8026CF28	Picked up a crazy box
+0x00001300	0x100	0x80257A0C	Destroy Mario object?
+0x00001302	0x100	0x80258420	Grabbed star animation
+0x00001303	0x100	0x802584DC	Grabbed star underwater animation
+0x00001307	0x100	0x80258420	Grabbed star animation (Same as action 1302)
+0x00001308	0x100	0x80257CE4	Reading a sign
+0x0000130A	0x100	0x80257980	Looking forward?
+0x0000130F	0x100	0x80257EAC	Model stuck in T-Position (debug/unused action?)
+0x00001319	0x100	0x8025D1D4	Ending credits Mario, stand still and do nothing
+0x0000131A	0x100	0x8025D4F0	Mario waving and go to End Cake Picture
+0x00001320	0x100	0x80259264	Opening a warp door
+0x00001321	0x100	0x80259264	Opening a regular door
+0x00001322	0x100	0x802593CC	Warp door closing
+0x00001325	0x100	0x80259740	Level entrance landing
+0x00001327	0x100	0x802598D0	Star/Bowser key get fanfare
+0x0000132E	0x100	0x80258BA8	Opening a locked door with a key
+0x0000132F	0x100	0x80258DAC	Opening a door with star power
+0x00001331	0x100	0x80258F94	Opening a star door
+0x00001333	0x100	0x8025A040	Bowser level entrance landing
+0x00001336	0x100	0x8025A610	Fade warp out
+0x00001337	0x100	0x8025A6FC	Fade warp in
+0x0000133D	0x100	0x8025AE0C	Putting on a cap
+0x00001371	0x140	0x8025FC6C	Inside a cannon
+0x00001535	0x100	0x8025A0BC	shrink warp to BBH
+0x00001904	0x100	0x802585C0	Sets current action to 00001302
+0x00001909	0x100	0x8025BBEC	Grabbed grand star, fly around third bowser stage
+0x00001918	0x100	0x8025D040	Ending Castle Grounds peach sequence
+0x00001923	0x100	0x802594D4	Coming out of Warp pipe
+0x00001924	0x100	0x80259608	???
+0x00001926	0x100	0x802597AC	Out of painting (success)
+0x00001928	0x100	0x80259C30	Out of painting (failed)
+0x00001929	0x100	0x80259CE8	Lose a life & regenerate health
+0x0000192A	0x100	0x80259D74	Lose a life & regenerate health (knocked onto the ground)
+0x0000192B	0x100	0x80259E00	Ejected from Bowser 1 entrance (success)
+0x0000192C	0x100	0x80259EF8	Ejected from Bowser 1 entrance (failed)
+0x0000192D	0x100	0x80259854	Falling from lobby ceiling (success)
+0x00001932	0x100	0x80259FCC	Falling from lobby ceiling (failed)
+0x00001934	0x100	0x8025A494	Start shrink warp to BBH
+0x000042F4	0x0C0	0x80274268	???
+0x000042F5	0x0C0	0x80274384	??? (Carrying object)
+0x000042F6	0x0C0	0x80274688	Create ring of smoke?
+0x000042F7	0x0C0	0x8027475C	Create ring of smoke? (Carrying object)
+0x000044F2	0x0C0	0x80273CD0	Reset Mario in water?
+0x000044F3	0x0C0	0x80273E74	Reset Mario in water? (Carrying object)
+0x000044F8	0x0C0	0x80274030	???
+0x000044F9	0x0C0	0x80274134	??? (Carrying object)
+0x000044FA	0x0C0	0x802744AC	Create puff of smoke?
+0x000044FB	0x0C0	0x80274580	Create puff of smoke? (Carrying object)
+0x0002020D	0x000	0x80261CEC	???
+0x00020226	0x000	0x80262980	Bouncing in place from Bowser's Jump onto platform
+0x00020338	0x100	0x8025A858	Getting electrocuted
+0x00020339	0x100	0x8025A9AC	Getting squished
+0x0002033A	0x100	0x8025AFFC	Head stuck in snow
+0x0002033B	0x100	0x8025B050	Butt stuck in snow
+0x0002033C	0x100	0x8025B0A4	Lower torso stuck in snow
+0x00020370	0x140	0x8025FB90	Being carried by King bob-omb/Chuckya
+0x00020449	0x040	0x8026795C	On fire (Lose 3 health)
+0x00020460	0x040	0x802689F8	Fallen down from high place (on back)
+0x00020461	0x040	0x80268ADC	Fallen down from high place (on stomach)
+0x00020462	0x040	0x80268B64	Knocked down after hitting a wall
+0x00020463	0x040	0x80268BB0	Knocked down, got up quickly
+0x00020464	0x040	0x80268BFC	Stumbling from getting hit
+0x00020465	0x040	0x80268C48	Stumbling from getting hit
+0x00020466	0x040	0x80268C94	Stumbled backward from getting hit
+0x00020467	0x040	0x80268D04	Knocked backward hard
+0x00021311	0x100	0x80258744	Kill Mario
+0x00021312	0x100	0x80258964	Kill Mario by quicksand
+0x00021313	0x100	0x802587EC	Kill Mario from shocking
+0x00021314	0x100	0x8025883C	Kill Mario from toxic haze
+0x00021315	0x100	0x802588F8	Kill Mario (laying on stomach)
+0x00021316	0x100	0x8025888C	Kill Mario (laying on back)
+0x00021317	0x100	0x80258A7C	Kill Mario by being eaten by Bubba
+0x00100341	0x140	0x8025E7A4	Grabbed a tree/pole from base
+0x00100342	0x140	0x8025E830	Grabbed tree from top part (produce leaves)
+0x00100343	0x140	0x8025E5A8	Climbing up tree/pole
+0x00100344	0x140	0x8025E930	Move to/from the top of a tree/pole
+0x00100345	0x140	0x8025EA30	At the top of a tree/pole
+0x00200349	0x140	0x8025F0B4	Some landing animation?
+0x0020054A	0x140	0x8025F1E4	Some landing animation?
+0x0080023C	0x000	0x8026350C	Ground pound hit
+0x00800380	0x180	0x80275328	Leg sweep attack / punching
+0x00800457	0x040	0x802665B4	Punch?
+0x0080045A	0x040	0x80268338	Slide move (on ground)
+0x008008A9	0x080	0x8026C9FC	Ground pounding
+0x0081089B	0x080	0x8026BF40	Riding koopa shell (Free fall)
+0x00840452	0x040	0x80268074	Sliding on butt
+0x00840454	0x040	0x802680D4	Roll grab object?
+0x00880456	0x040	0x80268684	Dive (sliding on ground)
+0x00880898	0x080	0x8026E968	Shot out of cannon
+0x008C0453	0x040	0x802685C0	Get up from dive?
+0x008C0455	0x040	0x80268608	Slide grabbed object?
+0x01000882	0x080	0x8026B814	Triple jump
+0x01000883	0x080	0x8026B90C	backflip
+0x01000887	0x080	0x8026BCC0	Side somersault
+0x01000889	0x080	0x8026C5D0	Jump?
+0x0100088C	0x080	0x8026B9AC	Falling
+0x010008A1	0x080	0x8026BBB4	Pick up object?
+0x010008A2	0x080	0x8026E088	Sliding on butt carrying object (in air)
+0x010008A3	0x080	0x8026C738	??? (carrying object in air?)
+0x010008A6	0x080	0x8026DB54	Dive role flip
+0x010008AD	0x080	0x8026DCF4	Reverse roll in air?
+0x010208B0	0x080	0x8026D3C8	Falling backward
+0x010208B1	0x080	0x8026D43C	Falling forward
+0x010208B2	0x080	0x8026D508	Knocked forward
+0x010208B3	0x080	0x8026D4B0	Knocked backward
+0x010208B4	0x080	0x8026CD0C	Set on fire (Lose 3 health)
+0x010208B5	0x080	0x8026CE50	Set on fire (Lose 3 health)
+0x010208B6	0x080	0x8026D6FC	Hit wall
+0x010208B7	0x080	0x8026E2B4	Butt on fire
+0x010208B8	0x080	0x8026D770	Blown away by big snowman (Lose cap)
+0x010208BD	0x080	0x8026D608	Knocked down forward
+0x010208BE	0x080	0x8026D560	Knocked down backward
+0x018008AA	0x080	0x8026E59C	Slide move (moving + pressing Z then B)
+0x018008AC	0x080	0x8026E810	Jump kick
+0x0188088A	0x080	0x8026C1E0	Dive
+0x0281089A	0x080	0x8026BF40	Riding koopa shell (Jumping)
+0x03000880	0x080	0x8026B6A0	Jump
+0x03000881	0x080	0x8026B740	Second jump
+0x03000885	0x080	0x8026C880	???
+0x03000886	0x080	0x8026BDCC	Jumping off of tree/pole
+0x03000888	0x080	0x8026BE78	longjump
+0x0300088D	0x080	0x8026F614	Jumping off top of tree/pole
+0x0300088E	0x080	0x8026DE98	Sliding on butt (in air)
+0x03000894	0x080	0x8026F2EC	Pushed forward? (Messes up camera)
+0x030008A0	0x080	0x8026BAB8	Jumping with object
+0x030008AF	0x080	0x8026F840	Sparkle triple jump
+0x04000440	0x040	0x80266354	moving
+0x04000445	0x040	0x80266E48	moving (sudden stop)
+0x0400044A	0x040	0x80266FC8	moving (slowing down)
+0x04000470	0x040	0x80269108	Landed on ground
+0x04000471	0x040	0x80269170	Landed on ground harder
+0x04000472	0x040	0x8026947C	Double jump landing
+0x04000473	0x040	0x802691D8	Side-flip landing
+0x04000478	0x040	0x802694E4	Triple jump ground landing
+0x0400047A	0x040	0x80269588	Back-flip ground landing
+0x04008448	0x040	0x80267728	Crawling
+0x04001301	0x100	0x8025B58C	Activate intro cutscene
+0x04808459	0x040	0x80268168	Sliding while crouching
+0x08000206	0x000	0x80262080	???
+0x08000207	0x000	0x802619D0	???
+0x08000208	0x000	0x80261AD0	Holding king bob-omb/Chuckya
+0x08000225	0x000	0x80262FEC	Slide move end animation
+0x0800022F	0x000	0x80262F50	Back-flip end animation
+0x08000234	0x000	0x802630F8	Pickup object?
+0x08000235	0x000	0x802631F0	Pickup object?
+0x08000239	0x000	0x80262FEC	Bounce out of lava end animation
+0x0800023A	0x000	0x80262EF0	triple jump end animation
+0x0800023B	0x000	0x8026305C	Long-jump end animation
+0x0800043F	0x000	0x80262398	Roll grab object? Changes action to 0x08000207
+0x0800034B	0x140	0x8025F6C0	Hanging on a ledge
+0x080042F0	0x0C0	0x80273A2C	Set carrying nothing?
+0x080042F1	0x0C0	0x80273BD4	Set carrying object?
+0x08100340	0x140	0x8025E21C	On tree/pole
+0x08200348	0x140	0x8025EF58	Some landing animation?
+0x0C000203	0x000	0x80261268	Sleeping
+0x0C000204	0x000	0x802614FC	Waking up
+0x0C000227	0x000	0x802635E8	Looking around with zoomed-in camera (C-button up)
+0x0C000230	0x000	0x80262D68	Landing from jump
+0x0C000231	0x000	0x80262DC4	Landing from double-jump
+0x0C000232	0x000	0x80262E94	Landing from falling off cliff
+0x0C000233	0x000	0x80262E20	Landing from side-somersault
+0x0C00023D	0x000	0x802621DC	End of sliding animation
+0x0C00023E	0x000	0x802622DC	End of ground-pound animation
+0x0C008220	0x000	0x80261DB4	Crouching
+
+0x0C008221	0x000	0x80262530	Start crouching
+0x0C008222	0x000	0x80262650	Stop crouching
+0x0C008223	0x000	0x80262770	Start crawling
+0x0C008224	0x000	0x80262890	Stop crawling
+0x0C400201	0x000	0x80260CB4	Idle
+0x0C400202	0x000	0x80261000	Yawning
+0x0C400205	0x000	0x80261F70	Reset Mario to idle(0x0C400201)?
+0x0C400209	0x000	0x802618D8	Coughing in toxic haze
+0x0C40020A	0x000	0x8026168C	Shivering in cold idle
+0x10020372	0x140	0x80260154	Activate Mario's helicopter spin
+0x1008089C	0x080	0x8026F660	Caught in wind up-draft
+0x108008A4	0x080	0x8026C034	Helicopter spin
+0x10880899	0x080	0x8026EC00	Flying with wing cap
+0x18800238	0x000	0x802633B4	Landing from helicopter spin
+0x20001305	0x100	0x80257AB0	You got 1/3/8/30/50/70 stars IC message
+0x20001306	0x100	0x80257748	Talking to a NPC (Toad/KTQ/Bowser)
+0x20810446	0x040	0x80267504	Riding koopa shell
+0x300024D0	0x0C0	0x80271AA0	Swimming in water
+0x300024D1	0x0C0	0x80271D04	Swimming in water (slowing down)
+0x300024D2	0x0C0	0x80271EB4	Stop swimming?
+0x300024D3	0x0C0	0x8027202C	Swimming while carrying object
+0x300024D4	0x0C0	0x8027226C	Swimming while carrying object (slowing down)
+0x300024D5	0x0C0	0x802723F0	Stop swimming? (carrying object)
+0x300024D6	0x0C0	0x80272548	Riding Koopa shell in water
+0x300024E0	0x0C0	0x80272778	Throwing object (in/under water)
+0x300024E1	0x0C0	0x80272870	Punching/Grabbing (in/under water)
+0x300022C2	0x0C0	0x802713BC	Swim movement end animation
+0x300022C3	0x0C0	0x802714A8	Swim movement end animation (Carrying Object)
+0x300022E2	0x0C0	0x80272E3C	Splash into water
+0x300032C4	0x0C0	0x80272CBC	Kill Mario in water (drowned)
+0x300032C7	0x0C0	0x80272DC0	Kill Mario in water
+0x300222C5	0x0C0	0x80272B1C	Knocked backward in water
+0x300222C6	0x0C0	0x80272B64	Knocked forward in water
+0x300222C8	0x0C0	0x80272BAC	Getting electrocuted in water
+0x300222E3	0x0C0	0x80273160	Teleport somewhere?
+0x380022C0	0x0C0	0x802711D4	Idle in water
+0x380022C1	0x0C0	0x802712C0	Carrying object underwater
+0x80000588	0x180	0x80275794	Throwing a box
+0x80000589	0x180	0x802758C0	Throwing King bob-omb/Chuckya
+0x80000A36	0x000	0x802632E8	Throwing some object?
+0x830008AB	0x080	0x8026C4B8	Throwing box while in the air
+
+https://www.smwcentral.net/?p=memorymap&game=sm64&u=0&address=&sizeOperation=%3D&sizeValue=&region[]=ram&type=*&context=*&description=
+可以查找mario各种状态信息
+
+重要的：
+0x8033B17C mario的状态在RAM的地址
+0x8033B1BC mario的Y速度
+$8029EDCC	88 bytes	Function that spawns an object at another object's location
+Arguments: A0 = pointer to relative object, A1 = graphics id, A2 = behavior segment offset
+Returns: V0 = pointer to the newly spawned object
+
+$802A3754	68 bytes  IsMarioGroundPounding function
+Detects if Mario is ground-pounding the current object.
+No parameters. Returns V0 = 1 if true, and V0 = 0 if false.
+
+$8033B176	2 bytes	Misc.	Global	Mario hat flags
+$8033B17C	4 bytes	Misc.	Global	Mario's current action
+$8033B218	2 bytes	Misc.	Global	Mario's current coins.
+$8033B220	1 byte	Misc.	Global	Mario Y offset from the ground (signed char)
+
+8033D488	145920 bytes
+Struct offsets: (Not completely accurate)
+003 Camera relativity
+004 Pointer to previous object
+008 Pointer to next object
+00C Pointer to ?? (some type of schema? Data has a pointer to mario's object in it)
+014 Pointer to model layout script
+020 X position (copy)
+024 Y position (copy)
+028 Z position (copy)
+03C Pointer to animation data
+054 X rotation
+058 Y rotation
+05C Z rotation
+060 Pointer to an object (?)
+064 Pointer to list of objects (?)
+068 Pointer to ?? (self when mario's object)
+070 Interaction from colliding object
+074 ?
+075 Object link status?
+076 Collision with object status
+078 Pointer to an object (?) (usually Mario's)
+07C Pointer to an object (?)
+0A0 X position
+0A4 Y position
+0A8 Z position
+0AC X momentum
+0B0 Y momentum
+0B4 Z momentum
+0F0 Model layout script case parameter
+120 Segmented pointer to animation data (?)
+130 Interaction
+144 Interaction index (dialogue and spawn table indexes)
+154 Frame counter
+164 X position anchor
+168 Y position anchor
+16C Z position anchor
+17C Model transparency
+180 Interaction parameter (number of coins, damage dealt)
+188 Interaction parameter ? (door warps)
+19C Render distance
+1C0 Pointer to level collision data that the object is standing on
+1CC Pointer to behavior script (active)
+1D0 Pointer to behavior script (active)
+1F8 Collision sphere width
+1FC Collision sphere height
+20C Pointer to behavior script (initial)
+21C Pointer to collision polygon
+25C Pointer to model script table?
+
+
+
+
+按键对应编码
+C-Right
+0x0001
+C-Left
+0x0002
+C-Down
+0x0004
+C-Up
+0x0008
+R
+0x0010
+L
+0x0020
+D-Right
+0x0100
+D-Left
+0x0200
+D-Down
+0x0400
+D-Up
+0x0800
+Start
+0x1000
+Z
+0x2000
+B
+0x4000
+A
+0x8000
+
+
+0x8037DB24 V0=test_obj_collision(int *A0, int *A1)
+ Test for collision between two objects. Input params:
+ A0=pointer to an object structure.
+ A1=pointer to another object structure.
+ Returns:V0=0 if collision between the two objects; 1 if no collision.***Check***
+
+0x8037BF88 0x8029EDCC *V0=spawn_object(int *A0,int A1,int A2)
+ Spawns an object. Input params:
+ A0=pointer to object for positioning spawned object (i.e. the object whose behaviour is responsible for spawning the object, but could be another object).
+ A1=graphic ID of object to be spawned (not needed for some behaviours in which the graphic ID should be zero).
+ A2=segment/offset pointer to start of behaviour script for object to be spawned (determines behaviour to use for spawned object).
+ Returns:
+ V0=pointer to spawned object.
+0x8037C0D0 0x8029EF64 *v0=spawn_object2(int A0,int A1,int A2,int A3,int *T0,int T1,int T2)
+ Spawns an object a set distance from the parent object. Input params:
+ A0=Extra value to be passed to the behaviour for spawning the object (e.g., type of Koopa, etc).
+ A1=X distance from parent object.
+ A2=Y distance from parent object.
+ A3=Z distance from parent object.
+ T0 (T2 NTSC) =Pointer to parent object.***Check***
+ T1 (T3 NTSC) =Graphic ID for spawning object.***Check***
+ T2 (T4 NTSC) =Segment/offset behaviour value for spawning object.***Check***
+ Returns:
+ V0=pointer to spawned object.
+

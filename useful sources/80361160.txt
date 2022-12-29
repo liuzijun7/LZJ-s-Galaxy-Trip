@@ -1,0 +1,53 @@
+https://github.com/n64decomp/sm64/blob/1372ae1bb7cbedc03df366393188f4f05dcfc422/include/object_fields.h#L106
+
+003 Camera relativity
+004 Pointer to previous object
+008 Pointer to next object
+00C Pointer to ?? (some type of schema? Data has a pointer to mario's object in it)
+014 Pointer to model layout script
+020 X position (copy)
+024 Y position (copy)
+028 Z position (copy)
+03C Pointer to animation data
+054 X rotation
+058 Y rotation
+05C Z rotation
+060 Pointer to an object (?)
+064 Pointer to list of objects (?)
+068 Pointer to ?? (self when mario's object)
+070 Interaction from colliding object
+074 ?
+075 Object link status?
+076 Collision with object status
+078 Pointer to an object (?) (usually Mario's)
+07C Pointer to an object (?)
+0A0 X position
+0A4 Y position
+0A8 Z position
+0AC X momentum
+0B0 Y momentum
+0B4 Z momentum
+0E4 gravity?
+0D8 轴向旋转
+0F0 Model layout script case parameter
+120 Segmented pointer to animation data (?)
+130 Interaction
+144 Interaction index (dialogue and spawn table indexes)
+154 Frame counter
+164 X position anchor
+168 Y position anchor
+16C Z position anchor
+174 buoyancy?
+17C Model transparency
+180 Interaction parameter (number of coins, damage dealt)
+184 health?
+188 Interaction parameter ? (door warps)
+19C Render distance
+1C0 Pointer to level collision data that the object is standing on
+1CC Pointer to behavior script (active)
+1D0 Pointer to behavior script (active)
+1F8 Collision sphere width
+1FC Collision sphere height
+20C Pointer to behavior script (initial)
+21C Pointer to collision polygon
+25C Pointer to model script table?

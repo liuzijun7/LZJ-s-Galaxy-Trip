@@ -1,0 +1,6 @@
+models that can be used for global models:
+8D 93 9A A9 AB BD C4 C5 C6 D3
+141 147 154 169 171 189 196 197 198 211
+https://github.com/n64decomp/sm64/blob/master/include/model_ids.h
+4A-53 74-83
+from E3-FF
